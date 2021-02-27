@@ -1,0 +1,371 @@
+//#region: CSS reset
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+//#endregion: CSS reset
+
+//#region: Imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+//#endregion: Imports
+
+//#region: Constants
+$color-base: #FFFFFF;
+$color-inverse: #16202F;
+$color-primary: #347CE2;
+$color-secondary: #FBCA17;
+$color-special: #E9381D;
+
+$border-radius-s: 10px;
+$border-radius-m: 20px;
+
+:root {
+    --gutters: 200px;
+}
+
+@media only screen and (max-width: 1100px) {
+    :root {
+        --gutters: 100px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    :root {
+        --gutters: 15px;
+    }
+}
+
+//#endregion: Constants
+
+//#region: General
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+p,
+img,
+a {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+//#endregion: General
+
+//#region: Components
+.main-container {
+    padding: 20px var(--gutters) 50px var(--gutters);
+}
+
+.navbar {
+    background-color: $color-inverse;
+    height: 32px;
+    padding: 10px var(--gutters);
+    overflow: hidden;
+
+    .content {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+
+        ul {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            li {
+                height: 100%;
+                display: inline-block;
+                margin-inline-end: 15px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border-radius: $border-radius-s;
+
+                a {
+                    text-decoration: none;
+                }
+
+                &.active {
+                    background-color: $color-primary;
+
+                    div>a {
+                        color: $color-base;
+                        font-weight: bold;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $color-primary;
+
+                    div>a {
+                        color: $color-base;
+                        font-weight: bold;
+                    }
+                }
+
+                &.opt-out {
+                    padding-left: 0;
+                    padding-right: 0;
+                    background-color: transparent;
+                }
+
+                &:first-child {
+                    margin-inline-end: 40px;
+                }
+
+                &:last-child {
+                    margin-inline-end: 0;
+                }
+
+                div {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        color: $color-base;
+                    }
+
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: $color-inverse;
+    padding: 30px var(--gutters);
+    width: calc(100% - 2 * var(--gutters));
+    bottom: 0;
+    display: flex;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    hr {
+        margin: 15px 0;
+        size: 1px;
+        opacity: 50%;
+    }
+
+    .content {
+        width: 100%;
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+
+            &>li {
+                float: left;
+                margin-right: 50px;
+            }
+
+            &>li:last-child {
+                margin-right: 0;
+            }
+
+            ul {
+                float: left;
+
+                .links-col {
+                    margin-right: 50px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    &>li {
+                        margin-bottom: 10px;
+                    }
+
+                    &>li:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .footer-logo {
+                color: $color-base;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                text-align: right;
+
+                #footer-logo {
+                    height: 16px;
+                }
+            }
+        }
+
+        .byline {
+            .copyright {
+                color: $color-base;
+                opacity: 50%;
+                font-family: "Roboto", sans-serif;
+            }
+
+            * {
+                margin-right: 20px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        & a,
+        & p {
+            color: $color-base;
+        }
+    }
+}
+
+//#endregion: Components`
