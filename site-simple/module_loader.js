@@ -1,4 +1,4 @@
-window.onload = function () {
+function replaceReferences() {
     var elements = document.getElementsByTagName('*'),
         i;
     for (i in elements) {
@@ -33,3 +33,6 @@ window.onload = function () {
         }
     }
 }
+
+window.onload = replaceReferences()
+setTimeout(replaceReferences, 100)  // Ensures that cards (nested replace) are loaded
