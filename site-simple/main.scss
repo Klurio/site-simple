@@ -134,6 +134,7 @@ table {
 
 //#region: Imports
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 //#endregion: Imports
 
@@ -171,6 +172,8 @@ html {
     padding: 0;
     margin: 0;
     height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -179,18 +182,72 @@ body {
     grid-template-rows: 1fr auto;
 }
 
+h1,
+h2 {
+    font-family: 'Caveat';
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
 p,
 img,
 a {
     font-family: 'Roboto', sans-serif;
 }
 
+p {
+    line-height: 18px;
+}
+
 a {
     text-decoration: none;
+    color: $color-primary;
 
     &:hover {
         text-decoration: underline;
     }
+}
+
+ol {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+ol li {
+    counter-increment: list-counter;
+    position: relative;
+    line-height: 22px;
+    margin-bottom: 12px;
+}
+
+ol li:last-child {
+    margin-bottom: 0;
+}
+
+ol li::before {
+    content: counter(list-counter);
+    color: $color-base;
+    background-color: $color-primary;
+    border-radius: 50%;
+    font-weight: bold;
+    position: absolute;
+    --size: 24px;
+    left: calc(-1 * var(--size) - 12px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: -2px;
+    text-align: center;
 }
 
 //#endregion: General
@@ -219,7 +276,7 @@ a {
             li {
                 height: 100%;
                 display: inline-block;
-                margin-inline-end: 15px;
+                margin-inline-end: 11px;
                 padding-left: 20px;
                 padding-right: 20px;
                 border-radius: $border-radius-s;
@@ -368,4 +425,114 @@ a {
     }
 }
 
-//#endregion: Components`
+.card {
+    border: 1px solid $color-inverse;
+    border-radius: $border-radius-m;
+    margin-bottom: 12px;
+    $padding: 15px;
+    padding: $padding;
+    width: calc(100% - 2 * $padding);
+    overflow: hidden;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .linked:hover {
+        cursor: pointer;
+    }
+
+    .content {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+
+        &>* {
+            margin-right: 25px;
+        }
+
+        &>*:last-child {
+            margin-right: 0px;
+        }
+
+        .image {
+            width: 70px;
+            max-height: 70px;
+            flex-shrink: 0;
+            display: flex;
+            align-content: center;
+
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .text {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        &>p {
+            line-height: 20px;
+        }
+
+        &>h2 {
+            margin-bottom: 10px;
+            margin-top: -8px;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card {
+        .content {
+            flex-flow: column;
+            align-items: center;
+        }
+
+        &>* {
+            margin-bottom: var(--item-spacing);
+            margin-right: 0;
+        }
+
+        &>*:last-child {
+            margin-bottom: 0px;
+        }
+
+        .image {
+            height: 100px;
+            margin-right: 0;
+        }
+    }
+}
+
+.kluring-gallery {
+    .content {
+        display: flex;
+        flex-flow: row;
+
+        &>* {
+            --item-spacing: 30px;
+            margin-right: var(--item-spacing);
+        }
+
+        &>*:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media only screen and (max-width: 790px) {
+        .content {
+            flex-wrap: wrap;
+
+            .section {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+
+//#endregion: Components

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 html,
 body,
 div,
@@ -151,6 +152,8 @@ html {
   padding: 0;
   margin: 0;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -159,18 +162,72 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+h1,
+h2 {
+  font-family: 'Caveat';
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
 p,
 img,
 a {
   font-family: 'Roboto', sans-serif;
 }
 
+p {
+  line-height: 18px;
+}
+
 a {
   text-decoration: none;
+  color: #347CE2;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+ol {
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ol li {
+  counter-increment: list-counter;
+  position: relative;
+  line-height: 22px;
+  margin-bottom: 12px;
+}
+
+ol li:last-child {
+  margin-bottom: 0;
+}
+
+ol li::before {
+  content: counter(list-counter);
+  color: #FFFFFF;
+  background-color: #347CE2;
+  border-radius: 50%;
+  font-weight: bold;
+  position: absolute;
+  --size: 24px;
+  left: calc(-1 * var(--size) - 12px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: -2px;
+  text-align: center;
 }
 
 .main-container {
@@ -199,7 +256,7 @@ a:hover {
 .navbar .content ul li {
   height: 100%;
   display: inline-block;
-  margin-inline-end: 15px;
+  margin-inline-end: 11px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
@@ -340,4 +397,105 @@ a:hover {
 
 .footer .content a, .footer .content p {
   color: #FFFFFF;
+}
+
+.card {
+  border: 1px solid #16202F;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  padding: 15px;
+  width: calc(100% - 2 * $padding);
+  overflow: hidden;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card .linked:hover {
+  cursor: pointer;
+}
+
+.card .content {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .content > * {
+  margin-right: 25px;
+}
+
+.card .content > *:last-child {
+  margin-right: 0px;
+}
+
+.card .content .image {
+  width: 70px;
+  max-height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-content: center;
+}
+
+.card .content .image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.card .content .text {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.card .content > p {
+  line-height: 20px;
+}
+
+.card .content > h2 {
+  margin-bottom: 10px;
+  margin-top: -8px;
+}
+
+@media only screen and (max-width: 400px) {
+  .card .content {
+    flex-flow: column;
+    align-items: center;
+  }
+  .card > * {
+    margin-bottom: var(--item-spacing);
+    margin-right: 0;
+  }
+  .card > *:last-child {
+    margin-bottom: 0px;
+  }
+  .card .image {
+    height: 100px;
+    margin-right: 0;
+  }
+}
+
+.kluring-gallery .content {
+  display: flex;
+  flex-flow: row;
+}
+
+.kluring-gallery .content > * {
+  --item-spacing: 30px;
+  margin-right: var(--item-spacing);
+}
+
+.kluring-gallery .content > *:last-child {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 790px) {
+  .kluring-gallery .content {
+    flex-wrap: wrap;
+  }
+  .kluring-gallery .content .section {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
 }
