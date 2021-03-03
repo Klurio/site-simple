@@ -12,13 +12,43 @@ window.addEventListener("load", () => {
             let sections = gallery.getElementsByClassName("section")
 
             getComponent("card")
-                .then(component => {
-                    sections[0].appendChild(component);
+                .then(card => {
+                    populateCard(card, {
+                        "id": 3,
+                        "title": "Vridna former",
+                        "short_description": "För att förstå sig på former är det bra att känna igen vad som faktiskt kännetecknar dem. Vilket av alternativen A–D har samma form som bilden till höger, fast vriden?"
+                    })
+                    sections[0].appendChild(card);
                 })
 
             getComponent("card")
-                .then(component => {
-                    sections[1].appendChild(component);
+                .then(card => {
+                    populateCard(card, {
+                        "id": 3,
+                        "title": "Vridna former",
+                        "short_description": "För att förstå sig på former är det bra att känna igen vad som faktiskt kännetecknar dem. Vilket av alternativen A–D har samma form som bilden till höger, fast vriden?"
+                    })
+                    sections[0].appendChild(card);
+                })
+
+            getComponent("card")
+                .then(card => {
+                    populateCard(card, {
+                        "id": 3,
+                        "title": "Vridna former",
+                        "short_description": "För att förstå sig på former är det bra att känna igen vad som faktiskt kännetecknar dem. Vilket av alternativen A–D har samma form som bilden till höger, fast vriden?"
+                    })
+                    sections[1].appendChild(card);
+                })
+
+            getComponent("card")
+                .then(card => {
+                    populateCard(card, {
+                        "id": 3,
+                        "title": "Vridna former",
+                        "short_description": "För att förstå sig på former är det bra att känna igen vad som faktiskt kännetecknar dem. Vilket av alternativen A–D har samma form som bilden till höger, fast vriden?"
+                    })
+                    sections[1].appendChild(card);
                 })
         });
 });
@@ -40,4 +70,15 @@ function getDOMFromString(text) {
     let content = doc.querySelector(".auto-fetch");
 
     return content;
+};
+
+function populateCard(card, data) {
+    let image = card.querySelector(".image").querySelector("img");
+    let text = card.querySelector(".text");
+
+    image.src = `../assets/kluringar/images/${data.id}.svg`;
+    text.querySelector("h2").innerText = data.title;
+    text.querySelector("p").innerText = data.short_description;
+
+    return card
 };
