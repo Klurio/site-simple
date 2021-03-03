@@ -419,8 +419,8 @@ ol li::before {
 .card .content {
   display: flex;
   flex-flow: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .card .content > * {
