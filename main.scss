@@ -474,6 +474,14 @@ ol li::before {
 
         .text {
             margin: 0;
+
+            p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
         }
 
         &>p {
@@ -515,7 +523,7 @@ ol li::before {
         display: grid;
         grid-auto-columns: min-content;
         gap: 20px;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
 }
 
