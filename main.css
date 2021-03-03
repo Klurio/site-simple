@@ -231,7 +231,7 @@ ol li::before {
 }
 
 .main-container {
-  padding: 20px var(--gutters) 50px var(--gutters);
+  padding: 40px var(--gutters) 80px var(--gutters);
 }
 
 .navbar {
@@ -491,5 +491,5 @@ ol li::before {
   display: grid;
   grid-auto-columns: min-content;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
