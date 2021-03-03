@@ -428,16 +428,9 @@ ol li::before {
 .card {
     border: 1px solid $color-inverse;
     border-radius: $border-radius-m;
-    margin-bottom: 12px;
-    $padding: 15px;
-    padding: $padding;
-    width: calc(100% - 2 * $padding);
+    padding: 20px;
     overflow: hidden;
     position: relative;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
 
     .linked:hover {
         cursor: pointer;
@@ -457,7 +450,6 @@ ol li::before {
         flex-flow: row;
         align-items: center;
         justify-content: center;
-
 
         &>* {
             margin-right: 25px;
@@ -481,8 +473,7 @@ ol li::before {
         }
 
         .text {
-            margin-bottom: 0;
-            margin-top: 10px;
+            margin: 0;
         }
 
         &>p {
@@ -514,38 +505,17 @@ ol li::before {
         .image {
             height: 100px;
             margin-right: 0;
+            margin-bottom: ;
         }
     }
 }
 
 .kluring-gallery {
-    .content {
-        display: flex;
-        flex-flow: row;
-
-        &>* {
-            --item-spacing: 30px;
-            margin-right: var(--item-spacing);
-        }
-
-        &>*:last-child {
-            margin-right: 0;
-        }
-
-        .section {
-            width: 100%;
-        }
-    }
-
-    @media only screen and (max-width: 790px) {
-        .content {
-            flex-wrap: wrap;
-
-            .section {
-                margin-right: 0;
-                margin-bottom: 12px;
-            }
-        }
+    .gallery-content {
+        display: grid;
+        grid-auto-columns: min-content;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
     }
 }
 

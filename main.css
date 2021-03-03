@@ -402,15 +402,9 @@ ol li::before {
 .card {
   border: 1px solid #16202F;
   border-radius: 20px;
-  margin-bottom: 12px;
-  padding: 15px;
-  width: calc(100% - 2 * $padding);
+  padding: 20px;
   overflow: hidden;
   position: relative;
-}
-
-.card:last-child {
-  margin-bottom: 0;
 }
 
 .card .linked:hover {
@@ -455,8 +449,7 @@ ol li::before {
 }
 
 .card .content .text {
-  margin-bottom: 0;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .card .content > p {
@@ -482,33 +475,13 @@ ol li::before {
   .card .image {
     height: 100px;
     margin-right: 0;
+    margin-bottom: 20px;
   }
 }
 
-.kluring-gallery .content {
-  display: flex;
-  flex-flow: row;
-}
-
-.kluring-gallery .content > * {
-  --item-spacing: 30px;
-  margin-right: var(--item-spacing);
-}
-
-.kluring-gallery .content > *:last-child {
-  margin-right: 0;
-}
-
-.kluring-gallery .content .section {
-  width: 100%;
-}
-
-@media only screen and (max-width: 790px) {
-  .kluring-gallery .content {
-    flex-wrap: wrap;
-  }
-  .kluring-gallery .content .section {
-    margin-right: 0;
-    margin-bottom: 12px;
-  }
+.kluring-gallery .gallery-content {
+  display: grid;
+  grid-auto-columns: min-content;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
 }

@@ -9,15 +9,14 @@ window.addEventListener("load", () => {
                     galleryRoot.appendChild(component);
                 })
                 .then(() => {
-                    let gallery = galleryRoot.querySelector(".kluring-gallery").querySelector(".content");
-                    let sections = gallery.getElementsByClassName("section")
+                    let content = galleryRoot.querySelector(".kluring-gallery").querySelector(".gallery-content");
 
                     getComponent("card")
                         .then(templateCard => {
                             for (data of dataList) {
                                 let card = templateCard.cloneNode(deep = true);
-                                populateCard(card, data)
-                                sections[0].appendChild(card);
+                                populateCard(card, data);
+                                content.appendChild(card);
                             }
                         })
                 });
