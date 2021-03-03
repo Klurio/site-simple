@@ -1,4 +1,4 @@
-function replaceReferences() {
+window.addEventListener("load", () => {
     var elements = document.getElementsByTagName('*'),
         i;
     for (i in elements) {
@@ -32,6 +32,4 @@ function replaceReferences() {
             /* todo catch error */
         }
     }
-}
-
-window.onload = replaceReferences()
+});

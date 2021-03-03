@@ -1,6 +1,6 @@
 sectionCount = 2;
 
-window.onload = () => {
+window.addEventListener("load", () => {
     let galleryRoot = document.getElementById("kluring-gallery");
 
     getComponent("gallery")
@@ -21,7 +21,7 @@ window.onload = () => {
                     sections[1].appendChild(component);
                 })
         });
-};
+});
 
 const getComponent = (component) => {
     return new Promise((resolve, reject) => {
