@@ -433,6 +433,7 @@ ol li::before {
     padding: $padding;
     width: calc(100% - 2 * $padding);
     overflow: hidden;
+    position: relative;
 
     &:last-child {
         margin-bottom: 0;
@@ -442,11 +443,21 @@ ol li::before {
         cursor: pointer;
     }
 
+    .link-spanner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
     .content {
         display: flex;
         flex-flow: row;
         align-items: center;
         justify-content: center;
+
 
         &>* {
             margin-right: 25px;
