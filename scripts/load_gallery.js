@@ -1,5 +1,3 @@
-sectionCount = 2;
-
 window.addEventListener("load", () => {
     let galleryRoot = document.getElementById("kluring-gallery");
 
