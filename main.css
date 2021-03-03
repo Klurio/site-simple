@@ -474,7 +474,6 @@ ol li::before {
     align-items: center;
   }
   .card > * {
-    margin-bottom: var(--item-spacing);
     margin-right: 0;
   }
   .card > *:last-child {
