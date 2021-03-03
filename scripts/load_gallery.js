@@ -46,8 +46,10 @@ function getDOMFromString(text) {
 function populateCard(card, data) {
     let image = card.querySelector(".image").querySelector("img");
     let text = card.querySelector(".text");
+    let link = card.querySelector(".card-url");
 
     image.src = `../assets/kluringar/images/${data.id}.svg`;
     text.querySelector("h2").innerText = data.title;
     text.querySelector("p").innerText = data.short_description;
+    link.href = data.url;
 };
