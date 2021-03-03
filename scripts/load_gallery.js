@@ -79,6 +79,4 @@ function populateCard(card, data) {
     image.src = `../assets/kluringar/images/${data.id}.svg`;
     text.querySelector("h2").innerText = data.title;
     text.querySelector("p").innerText = data.short_description;
-
-    return card
 };
