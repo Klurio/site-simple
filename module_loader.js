@@ -35,4 +35,3 @@ function replaceReferences() {
 }
 
 window.onload = replaceReferences()
-setTimeout(replaceReferences, 100)  // Ensures that cards (nested replace) are loaded
