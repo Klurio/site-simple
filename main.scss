@@ -445,8 +445,8 @@ ol li::before {
     .content {
         display: flex;
         flex-flow: row;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
 
         &>* {
             margin-right: 25px;
@@ -520,6 +520,10 @@ ol li::before {
 
         &>*:last-child {
             margin-right: 0;
+        }
+
+        .section {
+            width: 100%;
         }
     }
 

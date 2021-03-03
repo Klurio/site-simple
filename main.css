@@ -419,8 +419,8 @@ ol li::before {
 .card .content {
   display: flex;
   flex-flow: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .card .content > * {
@@ -488,6 +488,10 @@ ol li::before {
 
 .kluring-gallery .content > *:last-child {
   margin-right: 0;
+}
+
+.kluring-gallery .content .section {
+  width: 100%;
 }
 
 @media only screen and (max-width: 790px) {
