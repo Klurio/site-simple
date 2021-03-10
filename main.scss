@@ -190,6 +190,8 @@ h2 {
 h1 {
     font-size: 48px;
     font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 h2 {
@@ -219,7 +221,7 @@ a {
 
 ol {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -228,6 +230,7 @@ ol li {
     position: relative;
     line-height: 22px;
     margin-bottom: 12px;
+    font-family: 'Roboto', sans-serif;
 }
 
 ol li:last-child {
